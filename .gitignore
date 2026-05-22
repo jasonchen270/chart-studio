@@ -1,0 +1,56 @@
+# ---- secrets / local config ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+appsettings.*.Local.json
+secrets.json
+
+# ---- local databases ----
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# ---- node ----
+node_modules/
+dist/
+.next/
+.angular/
+.cache/
+npm-debug.log*
+yarn-error.log*
+
+# ---- python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+
+# ---- .NET ----
+bin/
+obj/
+*.user
+
+# ---- java / maven ----
+target/
+*.class
+
+# ---- C / C++ / CMake ----
+build/
+*.o
+*.a
+*.out
+
+# ---- os / editor ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
