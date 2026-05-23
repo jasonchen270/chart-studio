@@ -12,7 +12,6 @@ preview re-renders.
   with intermediate dataframes cached in Redis keyed by CSV content hash. Generated
   Python is executed in a restricted subprocess.
 - **Storage**: Supabase Postgres for saved charts + row-level security on `owner_id`.
-- **Deploy**: Vercel (frontend), Fly.io or Render (backend), Upstash Redis.
 
 ## Local dev
 
