@@ -22,6 +22,12 @@ cd frontend
 pnpm install
 ```
 
+Apply the database migrations to your Supabase project. This creates the `charts` table and the row-level-security policies (each user can only see their own charts):
+
+```bash
+supabase db push   # or paste supabase/migrations/*.sql into the SQL editor in order
+```
+
 ## Usage
 
 ```bash
