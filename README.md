@@ -26,5 +26,3 @@ cd frontend
 pnpm install
 pnpm dev
 ```
-
-Env vars: see `.env.example` in each folder.
