@@ -1,6 +1,6 @@
 # Chart Studio
 
-Natural-language to Plotly charts over uploaded CSVs: type a prompt and get back generated Python that renders an interactive chart, then tweak the code in a split-pane Monaco editor and the preview re-renders. The frontend is React + TypeScript + Vite with Supabase auth and streaming tool-use traces over SSE, and the backend is FastAPI running a Claude tool-use loop (`load_csv`, `describe_df`, `render_chart`) that caches intermediate dataframes in Redis by CSV content hash, executes generated Python in a restricted subprocess, and persists saved charts in Supabase Postgres with row-level security on `owner_id`.
+Natural-language to Plotly charts over uploaded CSVs: type a prompt and get back generated Python that renders an interactive chart, then tweak the code in a split-pane Monaco editor with live preview. The frontend is React + TypeScript + Vite with Supabase auth; the backend is FastAPI running a Claude tool-use loop that executes generated Python in a restricted subprocess, caches dataframes in Redis, and persists charts in Supabase Postgres.
 
 ## Prerequisites
 
