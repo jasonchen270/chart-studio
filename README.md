@@ -29,21 +29,3 @@ pnpm dev
 ```
 
 Env vars: see `.env.example` in each folder.
-
-## Architecture sketch
-
-```
- CSV upload ──► presigned PUT to Supabase Storage ──► hash + cache in Redis
-     │
-     ▼
- Prompt ──► /api/generate (SSE) ──► Claude tool loop ──► Python source
-                                                          │
-                                                          ▼
-                                                  /api/execute ──► Plotly JSON
-                                                                       │
-                                                                       ▼
-                                                                 <Plot /> in UI
-```
-
-The split-pane lets the user edit the generated Python directly; saving re-runs
-`/api/execute` against the same cached dataframe so iteration stays fast.
