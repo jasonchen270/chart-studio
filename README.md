@@ -1,28 +1,35 @@
 # Chart Studio
 
-Natural-language → Plotly charts over uploaded CSVs. Type a prompt, get back generated
-Python that renders an interactive chart; tweak the code in a split-pane editor and the
-preview re-renders.
+Natural-language to Plotly charts over uploaded CSVs: type a prompt and get back generated Python that renders an interactive chart, then tweak the code in a split-pane Monaco editor and the preview re-renders. The frontend is React + TypeScript + Vite with Supabase auth and streaming tool-use traces over SSE, and the backend is FastAPI running a Claude tool-use loop (`load_csv`, `describe_df`, `render_chart`) that caches intermediate dataframes in Redis by CSV content hash, executes generated Python in a restricted subprocess, and persists saved charts in Supabase Postgres with row-level security on `owner_id`.
 
-## What's inside
+## Prerequisites
 
-- **Frontend**: React + TypeScript + Vite, split-pane editor (Monaco), Plotly preview,
-  Supabase auth, streaming tool-use traces over SSE.
-- **Backend**: FastAPI. Claude tool-use loop (`load_csv`, `describe_df`, `render_chart`)
-  with intermediate dataframes cached in Redis keyed by CSV content hash. Generated
-  Python is executed in a restricted subprocess.
-- **Storage**: Supabase Postgres for saved charts + row-level security on `owner_id`.
+- Node 18+
+- pnpm 8+
+- Python 3.11+ with `uv`
+- Redis 7+
+- Supabase project (Postgres + auth)
 
-## Local dev
+## Installation
 
 ```bash
 # Backend
 cd backend
 uv sync
-uvicorn app.main:app --reload
 
 # Frontend
 cd frontend
 pnpm install
+```
+
+## Usage
+
+```bash
+# Backend
+cd backend
+uvicorn app.main:app --reload
+
+# Frontend
+cd frontend
 pnpm dev
 ```
